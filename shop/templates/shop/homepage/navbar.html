@@ -1,0 +1,130 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!----------nav -------------------------------------------->
+  <nav  class="navbar  bg-dark fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav"  style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); ">
+    <div class="container" >
+   <div class="navbar-translate">
+		<a><img src="../../static/img/jadili.png " alt="" style="width:180px; height:100px "></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">    
+        
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <!-- <i class="material-icons">apps</i> Components --> Shop
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="{% url 'shop:product_list' %}"  class="dropdown-item">
+                <i class="material-icons">layers</i> Shop
+              </a>
+              <!-- <a href="{% url 'shop:product_list' %}"  class="dropdown-item">
+                <i class="material-icons">line_style</i> All Components
+              </a>
+              <a href="{% url 'shop:product_list' %}"  class="dropdown-item">
+                <i class="material-icons">content_paste</i> Documentation
+              </a> -->
+            </div>
+          </li>
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">view_day</i> About
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="{% url 'shop:about' %}"  class="dropdown-item">
+                <i class="material-icons">dns</i> Our story
+              </a>
+              <a href="{% url 'shop:contact' %}"  class="dropdown-item">
+                <i class="material-icons">call</i> Contact Us
+              </a>
+              <a href="{% url 'shop:about' %}" class="dropdown-item">
+                <i class="material-icons">list</i> FAQs
+              </a>
+             
+            </div>
+          </li>
+      
+          <li class="button-container nav-item iframe-extern">
+            <a href="/cart" class="btn  btn-primary  btn-round btn-block">
+              <i class="material-icons">shopping_cart</i> {{ totail_items }}  {{ totail_items|pluralize }}, KSH {{ cart.get_total_price }}
+            </a>
+          </li>
+
+          <li>
+
+         
+              <div class="dropdown ">
+                  {% if request.user.is_authenticated %}
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block "  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Welcome {{ request.user.first_name  }}
+                </button>
+                <div class="dropdown-menu dropdown-with-icons" aria-labelledby="multiDropdownMenu">
+              
+
+                    <a class="dropdown-item"  onclick="ajax_logout();"><i class="material-icons">person</i> Log out</a>
+
+                    <a class="dropdown-item"  data-toggle="modal" data-target="#ordertrackmodal"> <i class="material-icons">motorcycle</i> Track Order</a>
+
+               
+                </div>
+                {% else %}
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block "  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account
+                </button>
+                <div class="dropdown-menu dropdown-with-icons" aria-labelledby="multiDropdownMenu">
+                    <a class="dropdown-item"  href="/redirected_login"> <i class="material-icons">account_circle</i> Login</a>
+                  <a class="dropdown-item"  href="/redirected-register"> <i class="material-icons">account_circle</i> Sign up</a>
+                 
+                </div>
+                {% endif %}
+              </div>
+           
+        </li>
+          <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="material-icons">store</i> sell with us
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                 
+                  <a class="dropdown-item"  data-toggle="modal" data-target="#noticeModal"> <i class="material-icons"></i> How it works</a>
+                <a href="{% url 'shop:vendorrequest' %}" class="dropdown-item">
+                  <i class="material-icons">location_on</i>Seller Center
+                </a>
+                <a href="{% url 'shop:Vendorfaqs' %}"class="dropdown-item">
+                  <i class="material-icons">question_answer</i> FAQs
+                </a>
+               
+              </div>
+            </li>
+
+
+   
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--------- end of nav -------------------------------->
+
+
+
+
+<!--------         modal ----------------------------------------------------->
+
+
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+{% include "shop/homepage/page/jsmodal.html" %}
+
+
+<!-------- end modal -------------------------------------------------------------->
+

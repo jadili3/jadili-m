@@ -1,0 +1,193 @@
+{% extends 'login/base.html' %}
+{% load static %}
+{% block content %}
+    	
+<div class="container-login100" >
+  <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20">
+    <form class="login100-form validate-form" method="post" action='/login' name="loginForm">
+   
+      <!-- <div class="text-center p-t-7 p-b-0">
+          <span class="txt1">
+         or Log in with
+
+          </span>
+        </div> -->
+      <!-- <div class="flex-c p-b-20">
+        <a href="#" class="login100-social-item">
+          <i class="fa fa-facebook-f"></i>
+        </a>
+
+        <a href="#" class="login100-social-item">
+        
+          <img src="{% static 'images/icon-google.png' %}" alt="GOOGLE">
+        </a>
+      </div> -->
+           <div class="flex-c p-b-0">
+     
+
+        <a href="#" class="login100-social-item">
+        
+          <img src="{% static 'images/uni.png' %}" alt="logo">
+        </a>
+      </div>
+      <span class="login100-form-title p-b-7">
+        Sign In
+      </span>
+      <br>
+          <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+    
+        <input class="input100" type="text" name="login_username" id="login_username" placeholder="enter email" autocorrect="off" autocapitalize="none">
+      
+            <span class="focus-input100">  </span>
+       
+          </div>
+  
+          <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+            <input class="input100" type="password" name="login_password" id="login_password" placeholder="password">
+            <span class="focus-input100"></span>
+          </div>
+
+     
+          <div class="container-login100-form-btn" >
+            <button class="login100-form-btn"   type="button" onclick="ajax_authenticate();">
+              Sign In
+            </button>
+          </div>
+
+        <br>
+    
+
+      
+          <div class="text-center">
+              <a href="/forgot_password" class="txt2 hov1">
+              forgot password?
+              </a>
+              <br>
+            <span class="txt1"> Dont have an account?</span>   <a href="/redirected-register"><strong class="txt2 hov1">Register</strong></a>
+
+            </div>
+
+            <br>
+            <div class="text-center txt3">
+                Copyright &#xA9;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script> Jadili Mall 
+                  <br>
+       
+              </div>
+         
+        </form>
+  
+        
+      </div>
+    </div>
+    
+    
+  
+    <div id="dropDownSelect1"></div>
+
+
+
+
+
+
+
+    <script>
+            /**
+             * When the 'Enter' key is pressed, lets try login in.
+             */
+            $(document).bind("keypress.13", function(event) {
+                if ($('#login_modal').is(':visible')) {
+                    if (event.which == 13) {
+                        ajax_authenticate();
+                    }
+                }
+            });
+            
+            //
+            // IMPORTANT:
+            //  The following block of code will run when finished running this modal.
+            //  Please put all jQuery unbinding code here.
+            //
+            // When this model hides, we will clear the contents of it.
+            $('#login_modal').on('hidden.bs.modal', function (e) {
+                $(document).unbind("keypress.key13");
+                $('#login_modal').remove();
+                $('#ajax_response_login').html('');
+            });
+            
+            /**
+             *  Function will call AJAX function to load the register.
+             */
+            function ajax_authenticate()
+            {
+                var url = 'login';
+        
+                $.ajax( url, {
+                    data: {
+                       'username': $("#login_username").val(),
+                       'password': $("#login_password").val(),
+                       'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    type: 'post',
+                    success: function(json_result) {
+                    // success code execution here
+                       if (json_result.status == "success")
+                       {
+                            // Hide & close the current popup modal.
+                            $('#login_modal').modal('hide');
+                   
+                            // Load up the course list.
+                            window.location = '/shop';
+                       }
+                       else
+                       {
+                            alert(json_result.message);
+                       }
+                    },
+                    error: function(xhr,status,error) {
+                       // error code here
+                    },
+                    complete: function(xhr,status) {
+                       // completion code here
+                    }
+                });
+            }
+        
+            /**
+             *  TODO: Implement.
+             */
+            function ajax_forget_password()
+            {
+                var url = 'forget_password';
+            
+                $.ajax( url, {
+                    data: {
+                       'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    },
+                    type: 'post',
+                    success: function(result) {
+                       // success code execution here
+                       $('#ajax_response_register').html(result); // Update UI.
+                       $('#register_modal').modal();               // Unhide view.
+                    },
+                    error: function(xhr,status,error) {
+                       // error code here
+                    },
+                    complete: function(xhr,status) {
+                       // completion code here
+                    }
+                });
+            }
+        </script>
+        
+     
+
+
+
+        {% include "shop/homepage/page/jsmodal.html" %}  
+          <div id="ajax_response_login"></div>
+          <div id="ajax_response_register"></div>
+          <div id="ajax_logout"></div>
+  {% endblock content %}

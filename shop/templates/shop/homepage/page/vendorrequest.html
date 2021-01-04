@@ -1,0 +1,335 @@
+{% extends 'shop/homepage/base2.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+
+<nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a><img src="../../static/img/jadili.png " alt="" style="width:180px; height:100px "></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">apps</i> Components
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="../presentation.html" class="dropdown-item">
+                <i class="material-icons">layers</i> Presentation
+              </a>
+              <a href="../index.html" class="dropdown-item">
+                <i class="material-icons">line_style</i> All Components
+              </a>
+              <a href="../docs/2.1/getting-started/introduction.html" class="dropdown-item">
+                <i class="material-icons">content_paste</i> Documentation
+              </a>
+            </div>
+          </li> -->
+         
+          <li class="button-container nav-item iframe-extern">
+            <a href="{% url 'shop:product_list' %}"  class="btn  btn-primary   btn-round btn-block">
+               Shop
+            </a>
+          </li>
+      
+          <li class="button-container nav-item iframe-extern">
+            <a href="{% url 'shop:home' %}"  class="btn  btn-primary   btn-round btn-block">
+              Back to home
+            </a>
+          </li>
+
+       
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/bg8.jpg')">
+    <div class="container">
+      <div class="row">
+          
+        <div class="col-md-10">
+          <h2 class="title">Your Success Story Starts With Us. <b>Why us?</b></h2>
+          <h4 class=""> 
+           We are a niche- multi vendor platform, focused on specific  unique design products. A single Store with a union of unique Products | curio | home decor | jewelry and so on (see full list of products you can <a href="">Start selling now</a> (<a href="">here</a>)  We welcome multiple merchants,local artists and talents to register with us absolutely free, giving you access to markets adding to our repository your own line of products, displaying them on the same page on our site.exposing your products to a wide range of customers from all across Kenya.Shopping online used to be a convenience and a luxury, now – its a necessity. Move along with the evolution. </h4> 
+           <br>
+
+           <li class="nav-item">
+          <a  href="#" target="_blank" class="btn btn-primary btn-round btn-sm">
+            <i class="fa fa-play"></i> Watch video tutorial
+          </a>
+          <a  href="#" target="_blank" class="btn btn-primary btn-round btn-sm">
+              <i class="fa fa-play"></i> Start selling now
+            </a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h3 class="title">What do I need to become a Jadili Mall vendor?</h3>
+            <h5 class="description">Do you have a variety of unique products that you sell? Do you have a physical store or have a storage room you keep them in? Do you want to show your products to millions of customers everyday 24/7? <br> <b>You are in the right place. </b> </h5>
+       
+          </div>
+        </div>
+        <div class="features">
+            <div class="col-md-8 ml-auto mr-auto">
+                <h3 class="title">Its as simple as A,B,C...</h3>
+              </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-info">
+                  <i class="material-icons">library_add</i>
+                </div>
+                <h4 class="info-title">Upload Products for free</h4>
+                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-info">
+                  <i class="material-icons"> 360 </i>
+                </div>
+                <h4 class="info-title">24/7 Customer Reach </h4>
+                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-info">
+                  <i class="material-icons">insights</i>
+                </div>
+                <h4 class="info-title">Get Product Insigts</h4>
+                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+      <div class="section section-contacts">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="text-center title">Want to work with us?</h2>
+            <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
+            <form class="contact-form">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Your Name</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Your Email</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+                <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-4 ml-auto mr-auto text-center">
+                  <button class="btn btn-primary btn-round btn-raised">
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    
+
+
+      <!--     *********    BIG WHITE FOOTER V2     *********      -->
+      <footer class="footer footer-white footer-big">
+          <div class="container">
+            <div class="content">
+              <div class="row">
+                <div class="col-md-3">
+                  <a href="#pablo">
+                    <h5>Jadili Mall</h5>
+                  </a>
+                  <p>Online shop etc etc etc etc etc etc etc etc etc etc etc etc</p>
+                </div>
+                <div class="col-md-2">
+                  <h5>About</h5>
+                  <ul class="links-vertical">
+                  
+                    <li>
+                      <a href="#pablo">
+                        About Us
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pablo">
+                        Contact Us
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-2">
+                  <h5>jadili</h5>
+                  <ul class="links-vertical">
+                      <li>
+                          <a href="#pablo">
+                            How to Register
+                          </a>
+                        </li>
+                    <li>
+                      <a href="#pablo">
+                        Sales FAQ
+                      </a>
+                    </li>
+                  
+                    <li>
+                      <a href="#pablo">
+                        Sell Goods
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pablo">
+                        Receive Payment
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pablo">
+                        Transactions Issues
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-2">
+                  <h5>Legal</h5>
+                  <ul class="links-vertical">
+                    <li>
+                      <a href="#pablo">
+                        Transactions FAQ
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#pablo">
+                        Terms &amp; Conditions
+                      </a>
+                    </li>
+                   
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <h5>Subscribe to Updates</h5>
+                  <p>
+                    Join our newsletter and get news in your inbox every week! We hate spam too, so no worries about this.
+                  </p>
+                  <form class="form form-newsletter" method="" action="#">
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Your Email...">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-just-icon" name="button">
+                      <i class="material-icons">mail</i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <ul class="social-buttons">
+              <li>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-facebook">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble">
+                  <i class="fa fa-dribbble"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-google">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#pablo" class="btn btn-just-icon btn-link btn-youtube">
+                  <i class="fa fa-youtube-play"></i>
+                </a>
+              </li>
+            </ul>
+            <div class="copyright pull-center">
+              Copyright &#xA9;
+              <script>
+                document.write(new Date().getFullYear())
+              </script> Jadili Mall powered by    <a href="http://www.brainlabs.co.ke" target="_blank">Brain labs Kenya</a> 
+            </div>
+          </div>
+        </footer>
+        <!--     *********   END BIG WHITE FOOTER v2     *********      -->
+      </div>
+    </div>
+    <!--         footer areas         -->
+  </div>
+
+    </div>
+  </div>
+
+  <footer class="footer footer-default">
+      <div class="container">
+        <nav class="float-right">
+          <ul>
+            <li>
+              <a href="#">
+               Facebook
+              </a>
+            </li>
+            <li>
+              <a href="#">
+               Twitter
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                IG
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      
+      </div>
+    </footer>   
+
+
+  {% endblock %}
+  
+
+
+
+
+

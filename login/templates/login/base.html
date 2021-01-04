@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Jadili Mall ">
+    <meta name="keywords" content="">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <title>{% block title %}Login | Jadili Mall {% endblock %}</title>  <!--Curio On-line -->
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/u.png' %}"/>
+   
+    {% for local_css_url in local_css_urls %}
+    <link rel="stylesheet" href="{% static local_css_url %}">
+{% endfor %}
+
+     <!-- adsence -->
+     <script data-ad-client="ca-pub-5398818708145454" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- adsence -->
+    <script>
+        UPLOADCARE_PUBLIC_KEY = 'd4d69f96f2e2dde353d1';
+        UPLOADCARE_EFFECTS = 'crop';
+        UPLOADCARE_PREVIEW_STEP = true;
+        UPLOADCARE_CLEARABLE = true;
+      </script>
+      
+      <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+      <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+      
+      <script>
+        uploadcare.registerTab('preview', uploadcareTabEffects)
+      </script>
+
+<!--     
+    {% for local_js_url in local_js_urls %}
+        <script src="{% static local_js_url %}"></script>
+    {% endfor %} -->
+   
+    
+</head>
+<body class="index-page sidebar-collapse">
+
+{% block content %}
+
+
+{% endblock %}
+<!--   Core JS Files   -->
+{% include "shop/homepage/page/js.html" %}
+
+    {% for local_js_url in local_js_urls %}
+          <script src="{% static local_js_url %}"></script>
+    {% endfor %}
+
+
+</body>
+</html>
+
